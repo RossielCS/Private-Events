@@ -1,2 +1,20 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+
+<br><br>
+<div>
+  <%= form_for @user do |f| %>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br><br>
+
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br><br>
+
+    <%= f.label :password, 'Password (6 characters minimum)' %><br>
+    <%= f.password_field :password %><br><br>
+
+    <%= f.label :password_confirmation, 'Confirmation' %><br>
+    <%= f.password_field :password_confirmation %><br><br>
+
+    <%= f.submit 'Sign Up' %>
+  <% end %>
+</div>

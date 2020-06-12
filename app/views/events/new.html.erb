@@ -12,6 +12,15 @@
     <%= f.label :date %><br>
     <%= f.date_field :date %><br><br>
 
+    <%= f.label :attendees, 'Select the users to invite to the event' %><br>
+    <div>
+      <% User.select{ |x| x.id != current_user.id }.each do |user| %>
+        <%= check_box_tag "user_ids[]", user.id %>
+        <%= user.username %><br>
+      <% end %>
+    </div>
+    
+
     <%= f.submit 'Create!' %>
   <% end %>
 </div>

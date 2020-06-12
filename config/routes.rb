@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get    'signup'  => 'users#new'
 
-  resources :events, only: [:new, :index, :show]
+  resources :events, only: [:new, :create, :index, :show]
 
   root 'sessions#new'
 end

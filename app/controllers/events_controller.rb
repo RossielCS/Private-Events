@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @event.creator_id = current_user.id
 
     if @event.save
+      create_invitation(params[:user_ids], @event.id)
       flash.now[:notice] = 'Event was successfully created.'
       redirect_to current_user
     else
@@ -27,6 +28,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:description)
+    params.require(:event).permit(:description, :location, :date)
   end
 end

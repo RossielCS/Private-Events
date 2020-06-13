@@ -5,7 +5,7 @@ The events take place at a specific date and location.
 
 If you want to know more about the project, [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) is the link to The Odin Project.
 
-## :hammer: Built With
+## :hammer:  Built With
 - Ruby,
 - Rails,
 - Bcrypt gem
@@ -28,12 +28,12 @@ You need to install:
 3. Then run Rail's server   
   $ `rails server`   
 
-### :computer: Usage
+### :computer:  Usage
 
 - Go to localhost:3000
 - Follow the instructions.
 
-## :gem: Features
+## :gem:  Features
 * Users can create an account.
 * Validates the username, email, and password.
 * Uses has_secure_password method along with bcrypt.
@@ -41,14 +41,14 @@ You need to install:
 * The user can create events and invite other uses.
 * Classify events according to the current date.
 
-## :woman: Author
+## :woman:  Author
 
 **Rossiel Carranza**
 
 - Github: [@RossielCS](https://github.com/RossielCS)
 - Linkedin: [Rossiel Carranza](https://www.linkedin.com/in/rossiel-carranza/) 
 
-## 🤝 Contributing
+## 🤝  Contributing
 
 Contributions, issues, and feature requests are welcome!
 
@@ -64,6 +64,6 @@ Give a ⭐️ if you like this project!
 - Inspiration
 - etc
 
-## 📝 License
+## 📝  License
 
 This project is [MIT](lic.url) licensed.

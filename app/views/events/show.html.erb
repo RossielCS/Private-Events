@@ -1,3 +1,33 @@
-<h1>User's Events</h1>
+<h1>Hi <%= current_user.username %></h1>
 
-<p>Find me in app/views/events/show.html.erb</p>
+<br><br>
+
+<h2>Your Events</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Attendees</th>
+    </tr>
+  </thead>
+
+  <tbody>    
+    <% @event.each do |e| %>
+      <tr>
+        <td><%= e.description %></td>
+        <td><%= e.location %></td>
+        <td><%= e.date %></td>
+        <% e.attendees.each do |a| %>
+          <td><%= a.username %></td>
+        <% end %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<%= link_to 'Create an Event', new_event_path %><br>
+<%= link_to 'Log out', logout_path, method: :delete %>

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.all
+    @upcoming_events = Event.upcoming
+    @prev_events = Event.past
   end
 
   def show
@@ -18,7 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       create_invitation(params[:user_ids], @event.id)
       flash.now[:notice] = 'Event was successfully created.'
-      redirect_to current_user
+      redirect_to @event
     else
       flash.now[:notice] = 'Error.'
       redirect_to new_event_path

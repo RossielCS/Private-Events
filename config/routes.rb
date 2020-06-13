@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :events, only: [:new, :create, :index, :show]
 
-  root 'sessions#new'
+  root 'events#index'
 end

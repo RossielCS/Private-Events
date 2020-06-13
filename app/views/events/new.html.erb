@@ -1,6 +1,7 @@
-<h1>Create New Event</h1>
+<br>
 
-<br><br>
+<h2>Create a New Event</h2>
+
 <div>
   <%= form_for @event do |f| %>
     <%= f.label :description, 'Describe the event' %><br>
@@ -13,14 +14,15 @@
     <%= f.date_field :date %><br><br>
 
     <%= f.label :attendees, 'Select the users to invite to the event' %><br>
-    <div>
-      <% User.select{ |x| x.id != current_user.id }.each do |user| %>
-        <%= check_box_tag "user_ids[]", user.id %>
-        <%= user.username %><br>
-      <% end %>
-    </div>
-    
+    <% User.select{ |x| x.id != current_user.id }.each do |user| %>
+      <%= check_box_tag "user_ids[]", user.id %>
+      <%= user.username %><br>
+    <% end %>
+
+    <br>
 
     <%= f.submit 'Create!' %>
   <% end %>
 </div>
+
+<br><br>

@@ -1,6 +1,4 @@
-<h1>Hi <%= current_user.username %></h1>
-
-<br><br>
+<br>
 
 <h2>Your Events</h2>
 <table>
@@ -28,6 +26,4 @@
 </table>
 
 <br><br>
-
-<%= link_to 'Create an Event', new_event_path %><br>
-<%= link_to 'Log out', logout_path, method: :delete %>
+<p>You have been invited to these <%= link_to 'Events', current_user %></p>

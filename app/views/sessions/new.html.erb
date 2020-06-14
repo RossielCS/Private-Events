@@ -1,17 +1,12 @@
+<%= link_to 'Back to Index', root_path %>
 <h1>Log in</h1>
 
 <br><br>
-<div>
-  <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br><br>
+<%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br><br>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %><br><br>
 
-    <%= f.submit 'Log in' %>
-  <% end %>
-  <br>
-  <p>New user? <%= link_to "Sign up!", signup_path %></p>
-</div>
+  <%= f.submit 'Log in' %>
+<% end %>

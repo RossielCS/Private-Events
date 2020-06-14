@@ -1,3 +1,4 @@
+<%= link_to 'Back to Index', root_path %>
 <h1>Sign Up</h1>
 
 <br><br>
@@ -8,12 +9,6 @@
 
     <%= f.label :email %><br>
     <%= f.email_field :email %><br><br>
-
-    <%= f.label :password, 'Password (6 characters minimum)' %><br>
-    <%= f.password_field :password %><br><br>
-
-    <%= f.label :password_confirmation, 'Confirmation' %><br>
-    <%= f.password_field :password_confirmation %><br><br>
 
     <%= f.submit 'Sign Up' %>
   <% end %>

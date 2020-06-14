@@ -1,4 +1,6 @@
-<br>
+<%= link_to 'Back to your Events' , current_user %>
+
+<br><br>
 
 <h2>Create a New Event</h2>
 
@@ -13,10 +15,15 @@
     <%= f.label :date %><br>
     <%= f.date_field :date %><br><br>
 
-    <%= f.label :attendees, 'Select the users to invite to the event' %><br>
-    <% User.select{ |x| x.id != current_user.id }.each do |user| %>
-      <%= check_box_tag "user_ids[]", user.id %>
-      <%= user.username %><br>
+    <% users = User.select{ |x| x.id != current_user.id } %>
+    <% unless users.empty? %>
+      <%= f.label :attendees, 'Select the users to invite to the event' %><br>
+      <% users.each do |user| %>
+        <%= check_box_tag "user_ids[]", user.id %>
+        <%= user.username %><br>
+      <% end %>
+    <% else %>
+      <p> There aren't registered users to invite to the event </p>
     <% end %>
 
     <br>
@@ -24,5 +31,3 @@
     <%= f.submit 'Create!' %>
   <% end %>
 </div>
-
-<br><br>

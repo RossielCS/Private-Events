@@ -1,6 +1,8 @@
+<p>You have been invited to these <%= link_to 'Events', current_user %></p>
+
 <br>
 
-<h2>Your Events</h2>
+<h2>Your Created Events</h2>
 <table>
   <thead>
     <tr>
@@ -17,13 +19,10 @@
         <td><%= e.description %></td>
         <td><%= e.location %></td>
         <td><%= e.date %></td>
-        <% e.attendees.each do |a| %>
+        <% e.event_attendees.each do |a| %>
           <td><%= a.username %></td>
         <% end %> 
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br><br>
-<p>You have been invited to these <%= link_to 'Events', current_user %></p>

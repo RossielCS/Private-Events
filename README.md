@@ -7,8 +7,7 @@ If you want to know more about the project, [here](https://www.theodinproject.co
 
 ## :hammer:  Built With
 - Ruby,
-- Rails,
-- Bcrypt gem
+- Rails
 
 ## Getting Started
 
@@ -35,9 +34,8 @@ You need to install:
 
 ## :gem:  Features
 * Users can create an account.
-* Validates the username, email, and password.
-* Uses has_secure_password method along with bcrypt.
-* To login is necessary to submit email and password.
+* Validates the email.
+* To login is necessary to submit email.
 * The user can create events and invite other uses.
 * Classify events according to the current date.
 

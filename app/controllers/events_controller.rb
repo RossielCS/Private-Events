@@ -17,11 +17,11 @@ class EventsController < ApplicationController
     @event.creator_id = current_user.id
 
     if @event.save
-      create_invitation(params[:user_ids], @event.id)
-      flash.now[:notice] = 'Event was successfully created.'
+      create_invitation(params[:user_ids], @event.id) if params[:user_ids]
+      flash[:notice] = 'Event was successfully created.'
       redirect_to @event
     else
-      flash.now[:notice] = 'Error.'
+      flash[:notice] = 'There was an error while creating the event.'
       redirect_to new_event_path
     end
   end

@@ -8,7 +8,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }
 
-  has_many :created_events, foreign_key: 'creator_id', class_name: 'Event'
+  has_many :events, foreign_key: 'creator_id', class_name: 'Event'
   has_many :invitations
 
   def upcoming_events

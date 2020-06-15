@@ -3,7 +3,10 @@ In this project, I built a site similar to a private Eventbrite which allows use
 Also, users can create events and send invitations.    
 The events take place at a specific date and location.   
 
-If you want to know more about the project, [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) is the link to The Odin Project.
+If you want to know more about the project, [this](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) is the link to The Odin Project.
+
+## Live Demo
+You can give it a try [here](https://obscure-harbor-97122.herokuapp.com/)!
 
 ## :hammer:  Built With
 - Ruby,

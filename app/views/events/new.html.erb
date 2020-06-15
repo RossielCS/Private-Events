@@ -15,7 +15,7 @@
         <%= f.label :date %><br>
         <%= f.date_field :date, class: "form-control" %><br><br>
 
-        <% users = User.select{ |x| x.id != current_user.id } %>
+        <% users = verify_attendees %>
         <% unless users.empty? %>
           <%= f.label :attendees, 'Select the users to invite to the event' %><br>
           <% users.each do |user| %>

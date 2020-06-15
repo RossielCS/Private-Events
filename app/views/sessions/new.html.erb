@@ -1,12 +1,16 @@
-<%= link_to 'Back to Index', root_path %>
-<h1>Log in</h1>
+<h1 class="text-center">Log In</h1>
 
 <br><br>
-
-<%= form_for(:session, url: login_path) do |f| %>
-
-  <%= f.label :email %><br>
-  <%= f.email_field :email %><br><br>
-
-  <%= f.submit 'Log in' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-sm-6 col-sm-offset-3">
+      <%= form_for(:session, url: login_path) do |f| %>
+        
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: "form-control" %><br><br>
+        
+        <%= f.submit 'Log In', class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

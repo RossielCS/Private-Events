@@ -10,20 +10,34 @@
   </head>
 
   <body>
-
+          
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
     
-    
-    <% unless current_user.nil? %>
-      <p><%= link_to 'Create an Event', new_event_path %></p>      
-      <p><%= link_to 'Log out', logout_path, method: :delete %></p>
+    <header class="navbar navbar-default">
+      <div class="container">          
+        <div class="navbar-header">
+          <%= link_to 'Private Events', root_path, :class => "navbar-brand" %>
+        </div>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% unless current_user.nil? %>
+              <li><%= link_to 'Create an Event', new_event_path %></li>
+              <li><%= link_to 'Your Events', event_path(@event, :id => current_user.id) %></li>
+              <li><%= link_to 'Invitations', current_user %></li>
+              <li><%= link_to 'Log out', logout_path, method: :delete %></li>              
+            <% else %>      
+              <li><%= link_to 'Log In', login_path %></li>
+              <li><%= link_to "Sign up", signup_path %></li>
+            <% end %>
+          </ul>
+        </nav>  
+      </div>      
+    </header>     
 
-      <h1>Hi <%= current_user.username %></h1>
-    <% else %>      
-      <p>Already an user? <%= link_to 'Log In', login_path %></p>
-      <p>New user? <%= link_to "Sign up!", signup_path %></p>
+    <% if current_user %>
+      <h1 class="text-center">Hi <%= current_user.username %></h1>
     <% end %>
 
     <%= yield %>

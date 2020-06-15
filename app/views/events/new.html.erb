@@ -1,33 +1,35 @@
-<%= link_to 'Back to your Events' , current_user %>
-
 <br><br>
 
-<h2>Create a New Event</h2>
+<h2 class = "text-center">Create a New Event</h2>
 
-<div>
-  <%= form_for @event do |f| %>
-    <%= f.label :description, 'Describe the event' %><br>
-    <%= f.text_area :description %><br><br>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-sm-6 col-sm-offset-3">
+      <%= form_for @event do |f| %>
+        <%= f.label :description, 'Describe the event' %><br>
+        <%= f.text_area :description, class: "form-control" %><br><br>
 
-    <%= f.label :location %><br>
-    <%= f.text_field :location %><br><br>
+        <%= f.label :location %><br>
+        <%= f.text_field :location, class: "form-control" %><br><br>
 
-    <%= f.label :date %><br>
-    <%= f.date_field :date %><br><br>
+        <%= f.label :date %><br>
+        <%= f.date_field :date, class: "form-control" %><br><br>
 
-    <% users = User.select{ |x| x.id != current_user.id } %>
-    <% unless users.empty? %>
-      <%= f.label :attendees, 'Select the users to invite to the event' %><br>
-      <% users.each do |user| %>
-        <%= check_box_tag "user_ids[]", user.id %>
-        <%= user.username %><br>
+        <% users = User.select{ |x| x.id != current_user.id } %>
+        <% unless users.empty? %>
+          <%= f.label :attendees, 'Select the users to invite to the event' %><br>
+          <% users.each do |user| %>
+            <%= check_box_tag "user_ids[]", user.id, class: "form-control" %>
+            <%= user.username %><br>
+          <% end %>
+        <% else %>
+          <p> There aren't registered users to invite to the event </p>
+        <% end %>
+
+        <br>
+
+        <%= f.submit 'Create!', class: "btn btn-primary btn-block"  %>
       <% end %>
-    <% else %>
-      <p> There aren't registered users to invite to the event </p>
-    <% end %>
-
-    <br>
-
-    <%= f.submit 'Create!' %>
-  <% end %>
+    </div>
+  </div>
 </div>

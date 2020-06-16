@@ -5,6 +5,8 @@ The events take place at a specific date and location.
 
 If you want to know more about the project, [this](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) is the link to The Odin Project.
 
+![Screenshot Private Events](https://user-images.githubusercontent.com/60085697/84824536-7bad6c00-aff6-11ea-9b00-6c9a150ee4fe.png)
+
 ## Live Demo
 You can give it a try [here](https://obscure-harbor-97122.herokuapp.com/)!
 

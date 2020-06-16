@@ -26,7 +26,7 @@
               <li><%= link_to 'Create an Event', new_event_path %></li>
               <li><%= link_to 'Your Events', event_path(@event, :id => current_user.id) %></li>
               <li><%= link_to 'Invitations', current_user %></li>
-              <li><%= link_to 'Log out', logout_path, method: :delete %></li>              
+              <li><%= link_to 'Log Out', logout_path, method: :delete %></li>              
             <% else %>      
               <li><%= link_to 'Log In', login_path %></li>
               <li><%= link_to "Sign up", signup_path %></li>

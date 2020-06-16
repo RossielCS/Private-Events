@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   subject { User.new(username: 'Paul', email: 'paul@mail.com') }
 
   describe 'Validations' do
@@ -27,7 +27,7 @@ RSpec.describe User, :type => :model do
 
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
-  
+
   describe 'User' do
     # Events
     it { should have_many(:events).with_foreign_key('creator_id').dependent(:destroy) }

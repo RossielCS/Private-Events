@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Event, :type => :model do
+RSpec.describe Event, type: :model do
   describe 'Validations' do
     # Description
     it { should validate_length_of(:description).is_at_least(10).is_at_most(120) }
@@ -23,7 +23,7 @@ RSpec.describe Event, :type => :model do
     # Date
     it { should allow_value('2020-07-25').for(:date) }
   end
-  
+
   describe 'Event' do
     # User
     it { should belong_to(:creator).class_name('User') }

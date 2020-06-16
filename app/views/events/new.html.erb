@@ -17,13 +17,13 @@
 
         <% users = verify_attendees %>
         <% unless users.empty? %>
-          <%= f.label :attendees, 'Select the users to invite to the event' %><br>
+          <%= f.label :attendees, 'Select the users to invite to the event.' %><br>
           <% users.each do |user| %>
             <%= check_box_tag "user_ids[]", user.id, class: "form-control" %>
             <%= user.username %><br>
           <% end %>
         <% else %>
-          <p> There aren't registered users to invite to the event </p>
+          <p> There aren't registered users to invite to the event. </p>
         <% end %>
 
         <br>

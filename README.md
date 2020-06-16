@@ -10,7 +10,12 @@ You can give it a try [here](https://obscure-harbor-97122.herokuapp.com/)!
 
 ## :hammer:  Built With
 - Ruby,
-- Rails
+- Rails,
+- Rspec,
+- Capybara,
+- Shoulda-matchers,
+- Webdrivers,
+- Rubocop
 
 ## Getting Started
 
@@ -34,6 +39,19 @@ You need to install:
 
 - Go to localhost:3000
 - Follow the instructions.
+
+## Tests
+Unit tests for:  
+- Models Associations.  
+- Models Validations.  
+
+Integration tests for:
+- Authentications.  
+- Events management.
+
+In your terminal search the repository's address and run:  
+  $ `rspec --format documentation`   
+  It will provide you well-organized output on your terminal with information about the tests.  
 
 ## :gem:  Features
 * Users can create an account.

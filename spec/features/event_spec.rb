@@ -37,7 +37,7 @@ RSpec.describe 'Events', type: :feature do
     expect(page).to have_content('Location')
     expect(page).to have_content('Date')
     expect(page).to have_content('Select the users to invite to the event.')
-    fill_in 'event[description]', with: 'Jessica\s Birthday Party.'
+    fill_in 'event[description]', with: 'Jessica\'s Birthday Party.'
     fill_in 'event[location]', with: 'Jessica\'s House'
     fill_in 'event[date]', with: '2020/09/17'
     click_button 'Create!'
@@ -46,12 +46,27 @@ RSpec.describe 'Events', type: :feature do
 
   it 'shows the invitations' do
     visit login_path
+    fill_in 'session[email]', with: other_user.email
+    click_button 'Log In'
+    expect(page).to have_content('Hi Jessica')
+    click_on 'Create an Event'
+    expect(page).to have_content('Hi Jessica')
+    expect(page).to have_content('Create a New Event')
+    expect(page).to have_content('Describe the event')
+    expect(page).to have_content('Location')
+    expect(page).to have_content('Date')
+    expect(page).to have_content('Select the users to invite to the event.')
+    fill_in 'event[description]', with: 'Jessica\'s Birthday Party.'
+    fill_in 'event[location]', with: 'Jessica\'s House'
+    fill_in 'event[date]', with: '2020/09/17'
+    click_button 'Create!'
+    click_on 'Log Out'
+    click_on 'Log In'
     fill_in 'session[email]', with: 'alex@mail.com'
     click_button 'Log In'
     expect(page).to have_content('Hi Alex')
     expect(page).to have_content('Invitations')
-    expect(page).to have_content('Upcoming')
-    expect(page).to have_content('Previous')
+    expect(page).to have_content('Jessica\'s Birthday Party.')
   end
 
   it 'shows the events show page' do

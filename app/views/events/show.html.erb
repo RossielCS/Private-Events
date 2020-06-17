@@ -20,7 +20,7 @@
               <td><%= e.description %></td>
               <td><%= e.location %></td>
               <td><%= e.date %></td>
-              <% e.event_attendees.each do |a| %>
+              <% e.attendees.each do |a| %>
                 <td><%= a.username %></td>
               <% end %> 
             </tr>

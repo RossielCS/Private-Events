@@ -8,13 +8,14 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }
 
-  has_many :events, foreign_key: 'creator_id', dependent: :destroy
-  has_many :invitations
+  has_many :events, foreign_key: 'creator_id'
+  has_many :invitations, foreign_key: 'attendee_id'
+  has_many :attended_events, through: :invitations
 
   def upcoming_events
     result = []
     invitations.each do |e|
-      result << e.event if e.event.date >= DateTime.now.to_date
+      result << e.attended_event if e.attended_event.date >= DateTime.now.to_date
     end
     result
   end
@@ -22,7 +23,7 @@ class User < ApplicationRecord
   def previous_events
     result = []
     invitations.each do |e|
-      result << e.event if e.event.date < DateTime.now.to_date
+      result << e.attended_event if e.attended_event.date < DateTime.now.to_date
     end
     result
   end

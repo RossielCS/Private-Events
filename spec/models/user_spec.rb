@@ -30,9 +30,10 @@ RSpec.describe User, type: :model do
 
   describe 'User' do
     # Events
-    it { should have_many(:events).with_foreign_key('creator_id').dependent(:destroy) }
+    it { should have_many(:events).with_foreign_key('creator_id') }
 
     # Invitations
-    it { should have_many(:invitations) }
+    it { should have_many(:invitations).with_foreign_key('attendee_id') }
+    it { should have_many(:attended_events).through(:invitations) }
   end
 end

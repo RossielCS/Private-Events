@@ -29,6 +29,7 @@ RSpec.describe Event, type: :model do
     it { should belong_to(:creator).class_name('User') }
 
     # Invitation
-    it { should have_many(:invitations).dependent(:destroy) }
+    it { should have_many(:invitations).with_foreign_key('attended_event_id') }
+    it { should have_many(:attendees).through(:invitations) }
   end
 end

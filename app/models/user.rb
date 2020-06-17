@@ -12,19 +12,6 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: 'attendee_id'
   has_many :attended_events, through: :invitations
 
-  def upcoming_events
-    result = []
-    invitations.each do |e|
-      result << e.attended_event if e.attended_event.date >= DateTime.now.to_date
-    end
-    result
-  end
-
-  def previous_events
-    result = []
-    invitations.each do |e|
-      result << e.attended_event if e.attended_event.date < DateTime.now.to_date
-    end
-    result
-  end
+  scope :upcoming, -> { where('date >= ?', DateTime.now.to_date) }
+  scope :previous, -> { where('date >= ?', DateTime.now.to_date) }
 end

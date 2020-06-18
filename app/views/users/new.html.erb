@@ -1,0 +1,18 @@
+<h1 class="text-center">Sign Up</h1>
+
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-sm-6 col-sm-offset-3">
+      <%= form_for @user do |f| %>
+        <%= f.label :username %><br>
+        <%= f.text_field :username, class: "form-control" %><br><br>
+
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: "form-control" %><br><br>
+
+        <%= f.submit 'Sign Up' , class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

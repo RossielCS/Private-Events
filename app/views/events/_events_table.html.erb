@@ -1,0 +1,50 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Upcoming</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>    
+          <% @upcoming_events.each do |e| %>
+            <tr>
+              <td><%= e.description %></td>
+              <td><%= e.location %></td>
+              <td><%= e.date %></td> 
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+      <h3>Previous</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>    
+          <% @prev_events.each do |e| %>
+            <tr>
+              <td><%= e.description %></td>
+              <td><%= e.location %></td>
+              <td><%= e.date %></td> 
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+<br><br>
